@@ -1,108 +1,73 @@
 import mongoose from "mongoose";
 
-const StudentSchema = new mongoose.Schema(
-    {
-        firstName : {
-            type : String,
-            require : true,
-        },
-        middleName : {
-            type : String,
-        },
-        lastName : {
-            type : String,
-            require : true,
-        },
-        email : {
-            type : String,
-            require : true,
-            unique : true,
-        },
-        password : {
-            type : String,
-            require : true,
-            min : 5,
-        },
-        phone : {
-            type : String,
-            require : true,
-        },
-        picturePath : {
-            type : String,
-            default : "",
-        },
-        date : Date ,
-        mothersName : {
-            type : String,
-            default : "",
-        },
-        fathersName : {
-            type : String,
-            default : "",
-        },
-        altEmail : {
-            type : String,
-            default : "",
-        },
-        nationality : {
-            type : Boolean,
-            default : true,
-        },
-        gender : {
-            type : String,
-            enum : ["Male","Female","Other"],
-        },
-        altphone : String,
-        category : {
-            type : String,
-            enum : ["General","OBC","SC/ST"],
-        },
-        disability : {
-            type : Boolean,
-            default : false,
-        },
-        caddress : {
-            address : String,
-            country : String,
-            district : String,
-            state : String,
-            city : String,
-            pincode : String,
-        },
-        paddress : {
-            address : String,
-            country : String,
-            district : String,
-            state : String,
-            city : String,
-            pincode : String,
-        },
-        jeescore : {
-            applicationNumber : {
-                type : String,
-                unique : true,
-            },
-            maths : String,
-            chemistry : String,
-            physics : String,
-            rollno : {
-                type : String,
-                unique : true,
-            },
-            total : String,
-        },
-        tenth : {
-            schoolName : String,
-            board : {
-                type : String,
-                enum : ["CBSE","ICSE","Other"],
-            },
-            address : String,
-        }
-
-    } , {timestamps : true}
+const UserSchema = new mongoose.Schema(
+  {
+    firstName: {
+      type: String,
+      required: true,
+      min: 2,
+      max: 50,
+    },
+    middleName: {
+      type: String,
+      default : "",
+      max: 50,
+    },
+    lastName: {
+      type: String,
+      required: true,
+      min: 2,
+      max: 50,
+    },
+    email: {
+      type: String,
+      required: true,
+      max: 50,
+      unique: true,
+    },
+    password: {
+      type: String,
+      required: true,
+      min: 5,
+    },
+    picturePath: {
+      type: String,
+      default: "",
+    },
+    mode : {
+        type : String ,
+        enum : ["Regular","Dasa","Board","Lateral"],
+        required : true,
+    },
+    dateOfBirth : Date,
+    mothersName : {
+        type: String,
+        default : "",
+    },
+    fathersName : {
+        type : String,
+        default : "",
+    },
+    mobileNumber : String,
+    nationality : Boolean,
+    gender: {
+        type: String,
+        enum: ['Male', 'Female', 'Other'],
+    },
+    altMobileNumber : String,
+    category : {
+        type : String,
+        enum : ["General" , "Obc", "Sc/St", "Others"],
+    },
+    income : Number,
+    disability : Boolean,
+    verificationStatus : {
+        type : String,
+        enum : ["Verified","Unverified","Pending"],
+    },
+  },
+  { timestamps: true }
 );
 
-
-const Student = mongoose.model("Student",StudentSchema);
-export default Student;
+const User = mongoose.model("User", UserSchema);
+export default User;

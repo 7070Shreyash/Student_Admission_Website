@@ -1,16 +1,31 @@
 import mongoose from "mongoose";
 
-const postSchema = mongoose.Schema(
+const addressSchema = mongoose.Schema(
   {
     userId: {
       type: String,
       required: true,
     },
-    
+    cAddress : {
+      address : String,
+      country : String,
+      district : String,
+      state : String,
+      city : String ,
+      zip : String,
+    },
+    pAddress : {
+      address : String,
+      country : String,
+      district : String,
+      state : String,
+      city : String ,
+      zip : String,
+    }
   },
   { timestamps: true }
 );
 
-const Post = mongoose.model("Post", postSchema);
+const Address = mongoose.model("Address", addressSchema);
 
-export default Post;
+export default Address;

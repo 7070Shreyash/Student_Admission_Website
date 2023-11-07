@@ -44,13 +44,16 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 /* ROUTES WITH FILES */
-app.post("/auth/register", register); //
-app.post("/posts", verifyToken, upload.single("picture"), createPost);
+//app.post("/auth/register", register); 
+//app.post("/posts", verifyToken, upload.single("picture"), createPost);
 
 /* ROUTES */
 app.use("/auth", authRoutes);
-app.use("/users", userRoutes);
-app.use("/posts", postRoutes);
+// app.use("/users", userRoutes);
+// app.use("/posts", postRoutes);
+
+app.use("/home/submitoredit",studentRoutes);
+app.use("/home",generalRoutes);
 
 /* MONGOOSE SETUP */
 const PORT = process.env.PORT || 6001;

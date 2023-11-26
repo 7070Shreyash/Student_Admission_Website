@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const addressSchema = mongoose.Schema(
   {
-    userId: {
+    studentId: {
       type: String,
       required: true,
     },

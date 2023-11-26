@@ -26,16 +26,17 @@ export const register = async (req, res) => {
       lastName,
       email,
       password: passwordHash,
-      picturePath : "",
       mode,
-      dateOfBirth : new Date(1970,10,12),
+      gender,
+      category,
+      picturePath : "",
+      altEmail : "",
       mothersName : "",
       fathersName : "",
+      dateOfBirth : new Date(1970,10,12),
       mobileNumber  : "",
-      nationality : true,
-      gender,
       altMobileNumber : "",
-      category,
+      nationality : true,
       income : 0,
       disability : false,
       verificationStatus : "Unverified",
@@ -62,8 +63,6 @@ export const studentLogin = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
-
-
 
 export const adminLogin = async (req,res) => {
   try {

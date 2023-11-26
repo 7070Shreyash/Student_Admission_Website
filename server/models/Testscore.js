@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const testscoreSchema = mongoose.Schema(
   {
-    userId: {
+    studentId: {
       type: String,
       required: true,
     },

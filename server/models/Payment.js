@@ -6,26 +6,7 @@ const paymentSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    fees : {
-        initial : {
-            type : Number,
-            default : 0,
-        },
-        semester : {
-            registration : [
-                {
-                    type : Number,
-                    default : 0,
-                }
-            ],
-            sem : [
-                {
-                    type : Number,
-                    default : 0,
-                }
-            ]
-        }
-    },
+    fees : Boolean
   },
   { timestamps: true }
 );

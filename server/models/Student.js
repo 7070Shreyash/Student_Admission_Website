@@ -2,44 +2,52 @@ import mongoose from "mongoose";
 
 const studentSchema = new mongoose.Schema(
   {
-    firstName: {
+    firstName: { //
       type: String,
       required: true,
       min: 2,
       max: 50,
     },
-    middleName: {
+    middleName: { // 
       type: String,
       default : "",
       max: 50,
     },
-    lastName: {
+    lastName: { // 
       type: String,
       required: true,
       min: 2,
       max: 50,
     },
-    email: {
+    email: { //
       type: String,
       required: true,
       max: 50,
       unique: true,
     },
-    password: {
+    password: { //
       type: String,
       required: true,
       min: 5,
     },
-    picturePath: {
-      type: String,
-      default: "",
-    },
-    mode : {
+    mode : { //
         type : String ,
         enum : ["Regular","Dasa","Board","Lateral"],
         required : true,
     },
-    dateOfBirth : Date,
+    gender: { //
+      type: String,
+      enum: ['Male', 'Female', 'Other'],
+  },
+  category : { //
+    type : String,
+    enum : ["General" , "Obc", "Sc/St", "Others"],
+},
+  picturePath: { 
+    type: String,
+    default: "",
+  },
+    altEmail : String,
     mothersName : {
         type: String,
         default : "",
@@ -48,20 +56,13 @@ const studentSchema = new mongoose.Schema(
         type : String,
         default : "",
     },
+    dateOfBirth : Date,
     mobileNumber : String,
-    nationality : Boolean,
-    gender: {
-        type: String,
-        enum: ['Male', 'Female', 'Other'],
-    },
     altMobileNumber : String,
-    category : {
-        type : String,
-        enum : ["General" , "Obc", "Sc/St", "Others"],
-    },
+    nationality : Boolean,
     income : Number,
     disability : Boolean,
-    verificationStatus : {
+    verificationStatus : { // very important
         type : String,
         enum : ["Verified","Unverified","Pending"],
     },
